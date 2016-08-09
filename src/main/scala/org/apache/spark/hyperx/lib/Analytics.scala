@@ -1,9 +1,12 @@
 package org.apache.spark.hyperx.lib
 
+import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.spark.hyperx.partition._
 import org.apache.spark.hyperx.{Hypergraph, HypergraphLoader}
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.{Logging, SparkConf, SparkContext}
+import org.apache.spark.{HashPartitioner, Logging, SparkConf, SparkContext}
+import org.apache.spark.rdd.RDD
 
 import scala.collection.mutable
 
@@ -97,6 +100,11 @@ object Analytics extends Logging {
         val objectiveNorm = options.remove("objectiveNorm").map(_.toInt).getOrElse(2)
         val effectiveSrc = options.remove("effectiveSrc").map(_.toDouble).getOrElse(1.0)
         val effectiveDst = options.remove("effectiveDst").map(_.toDouble).getOrElse(1.0)
+
+        val URL = options.remove("url").getOrElse(test_url)
+        val statisticOut = options.remove("staOut").getOrElse(test_StaOut)
+        val expNumber = options.remove("expNum").getOrElse("0")
+
         partitionStrategy.setPartitionParams(objectiveH, objectiveV, objectiveD,
             objectiveNorm, effectiveSrc, effectiveDst)
 
@@ -146,10 +154,24 @@ object Analytics extends Logging {
 
                 val hypergraph = loadHypergraph(sc, fname, vertexInput,
                     fieldSeparator, weighted, numPart, inputMode,
-                    partitionStrategy, hyperedgeStorageLevel, vertexStorageLevel)
+                    partitionStrategy, hyperedgeStorageLevel, vertexStorageLevel).cache()
+
                 val name = inputName(fname)
-                hypergraph.hyperedges.saveAsObjectFile(outputPath + name + "/hyperedges")
-                hypergraph.vertices.saveAsObjectFile(outputPath + name + "/vertices")
+
+                val edge = hypergraph.hyperedges.partitionsRDD.flatMap[String]{part =>
+                    part._2.tupleIterator(true, true).map{tuple =>
+                        tuple.attr + " : " + tuple.srcAttr.map(_._1.toString()).reduce(_ + " " + _) + " : " + tuple.dstAttr.map(_._1.toString()).reduce(_+ " " + _)
+                    }
+                }
+
+                val parStrat = options.remove("partStrategy").getOrElse("parStrat")
+                writeResultToHDFS(hypergraph, parStrat, name, URL, statisticOut, expNumber)
+
+                //output partition result to HDFS
+                edge.saveAsTextFile(outputPath + parStrat + "/" + name + "/experiment_" + expNumber)
+
+//                hypergraph.hyperedges.saveAsObjectFile(outputPath + name + "/hyperedges")
+//                hypergraph.vertices.saveAsObjectFile(outputPath + name + "/vertices")
                 sc.stop()
 
             case "rw" =>
@@ -191,6 +213,7 @@ object Analytics extends Logging {
                 sc.stop()
 
             case "lpp" =>
+
                 conf.set("hyperx.debug.k", numPart.toString)
                 val sc = new SparkContext(conf.setAppName("Label Propagation (" +
                     fname + ")"))
@@ -203,7 +226,33 @@ object Analytics extends Logging {
                 val maxIter = options.remove("maxIter").map(_.toInt).getOrElse(100)
                 val ret = LabelPropagationPartition.run(hypergraph, maxIter, numPart)
 
-                ret.saveAsTextFile(outputPath + "lpp")
+                val edge = ret._1
+
+                //TODO: compute statistic value
+                val graph = ret._2
+                val name = inputName(fname)
+
+                writeResultToHDFS(graph, "lpp", name, URL, statisticOut, expNumber)
+
+                //output partition result to HDFS
+                edge.saveAsTextFile(outputPath + "lpp/" + name + "/experiment_" + expNumber)
+
+//                println("==============================")
+//                edgePart.foreach(edge =>
+//                    println("partitionId: " + edge._1 + " set: " + edge._2.toString())
+//                )
+//                edgePartReduce.foreach(edge =>
+//                    println("partitionId: " + edge._1 + " set: " + edge._2.toString())
+//                )
+//                vertexPart.foreach(v =>
+//                    println("partitionId: " + v._1 + " vID: " + v._2)
+//                )
+//                vertexPartReduce.foreach(v =>
+//                      println("partitionId: " + v._1 + " vID: " + v._2)
+//                )
+//                println("==============================")
+
+                sc.stop()
 
             case "bc" =>
 
@@ -308,7 +357,72 @@ object Analytics extends Logging {
         path.split("/").last
     }
 
+    private def writeResultToHDFS(graph: Hypergraph[Int, Int], parStrat: String,
+                                  name: String, URL: String, statisticOut: String, expNumber: String): Unit ={
+
+        //TODO: compute statistic value
+
+        var numOfReplica = Array[Int]()
+        var numVertex = Array[Int]()
+        var numVertexInEdge = Array[Int]()
+
+        val edgePart = graph.hyperedges.collect().map(edge => (edge.attr, (edge.srcIds.iterator ++ edge.dstIds.iterator).toSet))
+        val vertexPart = graph.vertices.collect().map(v => (v._2, v._1))
+
+        val edgePartReduce = edgePart.groupBy(h => h._1).map{item =>
+            (item._1, item._2.flatMap(tuple => tuple._2).toSet)
+        }
+
+        val vertexPartReduce = vertexPart.groupBy(v => v._1).map(item => (item._1, item._2.map(tuple => tuple._2).toSet))
+
+        edgePartReduce.foreach { h =>
+            val pId = h._1
+            val demands = h._2
+            val local = vertexPartReduce.get(pId).get
+            numOfReplica = numOfReplica :+ demands.diff(local).size
+            numVertex = numVertex :+ local.size
+            numVertexInEdge = numVertexInEdge :+ demands.size
+
+            //                  println("demands: " + demands.toString())
+            //                  println("local: " + local.toString())
+            //                  println("replica: " + demands.diff(local).toString())
+        }
+
+        val replicaFactor = numOfReplica.sum.toDouble / numVertex.sum.toDouble
+
+        val meanEdge = numVertexInEdge.sum.toDouble / numVertexInEdge.length.toDouble
+        val devsEdge = numVertexInEdge.map(score => Math.pow(score - meanEdge, 2))
+        val stddevEdge = Math.sqrt(devsEdge.sum / numVertexInEdge.length)
+        val coefficientOfVariationEdge = stddevEdge / meanEdge
+
+        val meanVertex = numVertex.sum.toDouble / numVertex.length.toDouble
+        val devsVertex = numVertex.map(score => Math.pow(score - meanVertex, 2))
+        val stddevVertex = Math.sqrt(devsVertex.sum / numVertex.length)
+        val coefficientOfVariationVertex = stddevVertex / meanVertex
+
+
+        //                println("url: " + URL)
+        //                println("statisticOut: " + statisticOut)
+        //                println("expNumber: " + expNumber)
+
+        // output statistic to HDFS
+
+        val hadoopConf = new Configuration()
+        hadoopConf.set("fs.defaultFS", URL)
+        val hadoopFS = FileSystem.get(hadoopConf)
+        val hadoopOS = hadoopFS.create(new Path(statisticOut + parStrat + "/" + name + "/statistic/" + expNumber))
+        hadoopOS.write(("replicaFactor: " + replicaFactor + "\n" +
+          "edgeBalance: " + coefficientOfVariationEdge + "\n" +
+          "vertexBalance: " + coefficientOfVariationVertex).getBytes)
+
+        //output partition result to HDFS
+//        edge.saveAsTextFile(outputPath + "lpp/" + name + "/experiment_" + expNumber)
+    }
+
+
     private val test_path = "hdfs://master:9000/apps/hyperx/output/"
+    private val test_url = "hdfs://wjnamenode:9000"
+    private val test_StaOut = "/user/ec2-user/apps/hyperx/output/"
 
     private val listMode = "list"
     private val objectMode = "object"

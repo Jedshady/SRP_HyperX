@@ -7,7 +7,9 @@ import org.apache.spark.rdd.RDD
 import scala.util.Random
 
 object LabelPropagationPartition {
-    def run(hypergraph: Hypergraph[_, Int], numIter: Int, numPart: PartitionId) : RDD[String] = {
+    def run(hypergraph: Hypergraph[_, Int], numIter: Int, numPart: PartitionId)
+//    :RDD[String] = {
+    : (RDD[String], Hypergraph[Int, Int]) ={
 
         def hProg(tuple: HyperedgeTuple[Int, Int]): Iterator[(VertexId, Map[Int, Int])] = {
             val pid = tuple.attr
@@ -90,11 +92,17 @@ object LabelPropagationPartition {
 
         println("HYPERX DEBUGGING: preference " + preference.map(each => each._1 + " " + each._2).reduce(_ + " ; " + _))
 
-        h.hyperedges.partitionsRDD.flatMap[String]{part =>
+        val edgePartition = h.hyperedges.partitionsRDD.flatMap[String]{part =>
             part._2.tupleIterator(true, true).map{tuple =>
                 tuple.attr + " : " + tuple.srcAttr.map(_._1.toString()).reduce(_ + " " + _) + " : " + tuple.dstAttr.map(_._1.toString()).reduce(_+ " " + _)
             }
         }
+//        h.hyperedges.partitionsRDD.flatMap[String]{part =>
+//            part._2.tupleIterator(true, true).map{tuple =>
+//                tuple.attr + " : " + tuple.srcAttr.map(_._1.toString()).reduce(_ + " " + _) + " : " + tuple.dstAttr.map(_._1.toString()).reduce(_+ " " + _)
+//            }
+//        }
+        (edgePartition, h)
     }
 
     private def calculateCandidate(tuple: HyperedgeTuple[Int, Int]): Map[Int, Int] = {
