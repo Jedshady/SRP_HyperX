@@ -3,12 +3,14 @@ package org.apache.spark.hyperx.lib
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.spark.hyperx.partition._
-import org.apache.spark.hyperx.{Hypergraph, HypergraphLoader}
+import org.apache.spark.hyperx._
+import org.apache.spark.hyperx.impl.HypergraphImpl
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.{HashPartitioner, Logging, SparkConf, SparkContext}
 import org.apache.spark.rdd.RDD
 
 import scala.collection.mutable
+import scala.util.Random
 
 /**
  * The driver program for all the hypergraph algorithms
@@ -158,14 +160,34 @@ object Analytics extends Logging {
 
                 val name = inputName(fname)
 
+//                val edgeRDD = hypergraph.hyperedges.mapHyperedgePartitions((pid, part) => part.map(edge => pid))
+                val edgeRDD = hypergraph.hyperedges.mapPartitionsWithIndex((index, Iter) => Iter.map(edge => Hyperedge(edge.srcIds, edge.dstIds, index)), true)
+                val edgeHyperRDD = HyperedgeRDD.fromHyperedges[Int,Int](edgeRDD)
+                val vertexRDD = hypergraph.vertices
+                  .mapPartitionsWithIndex((index, Iter) => Iter.map(vertex => (vertex._1, index)), true).collect().toMap
+                val vertexHyperRDD = hypergraph.mapVertices{(id, _) =>
+                  vertexRDD.getOrElse(id, 0)
+                }.vertices
+
+
+//                println("==============================")
+//                vertexRDD.foreach(v =>
+//                  println("pID: " + v._2 + " vID: " + v._1)
+//                )
+//                println("==============================")
+
+
+//                val vertexHyperRDD = VertexRDD(vertexRDD2).withHyperedges(edgeHyperRDD)
+                val h = HypergraphImpl.fromExistingRDDs(vertexHyperRDD, edgeHyperRDD)
+
                 val edge = hypergraph.hyperedges.partitionsRDD.flatMap[String]{part =>
                     part._2.tupleIterator(true, true).map{tuple =>
                         tuple.attr + " : " + tuple.srcAttr.map(_._1.toString()).reduce(_ + " " + _) + " : " + tuple.dstAttr.map(_._1.toString()).reduce(_+ " " + _)
                     }
                 }
 
-                val parStrat = options.remove("partStrategy").getOrElse("parStrat")
-                writeResultToHDFS(hypergraph, parStrat, name, URL, statisticOut, expNumber)
+                val parStrat = options.remove("partMethod").getOrElse("parStrat")
+                writeResultToHDFS(h, parStrat, name, URL, statisticOut, expNumber)
 
                 //output partition result to HDFS
                 edge.saveAsTextFile(outputPath + parStrat + "/" + name + "/experiment_" + expNumber)
@@ -375,6 +397,17 @@ object Analytics extends Logging {
 
         val vertexPartReduce = vertexPart.groupBy(v => v._1).map(item => (item._1, item._2.map(tuple => tuple._2).toSet))
 
+//        println("==============================")
+//        edgePartReduce.foreach(h =>
+//          println("pID: " + h._1 + " edgeSet: " + h._2.toString() )
+//        )
+//        println("==============================")
+//        vertexPartReduce.foreach(v =>
+//          println("pID: " + v._1 + " vertexSet: " + v._2.toString())
+//        )
+//        println("==============================")
+
+        // TODO:uncomment
         edgePartReduce.foreach { h =>
             val pId = h._1
             val demands = h._2
@@ -383,9 +416,9 @@ object Analytics extends Logging {
             numVertex = numVertex :+ local.size
             numVertexInEdge = numVertexInEdge :+ demands.size
 
-            //                  println("demands: " + demands.toString())
-            //                  println("local: " + local.toString())
-            //                  println("replica: " + demands.diff(local).toString())
+//            println("demands: " + demands.toString())
+//            println("local: " + local.toString())
+//            println("replica: " + demands.diff(local).toString())
         }
 
         val replicaFactor = numOfReplica.sum.toDouble / numVertex.sum.toDouble
@@ -395,8 +428,8 @@ object Analytics extends Logging {
         val stddevEdge = Math.sqrt(devsEdge.sum / numVertexInEdge.length)
         val coefficientOfVariationEdge = stddevEdge / meanEdge
 
-        val meanVertex = numVertex.sum.toDouble / numVertex.length.toDouble
-        val devsVertex = numVertex.map(score => Math.pow(score - meanVertex, 2))
+        val meanVertex = numOfReplica.sum.toDouble / numVertex.length.toDouble
+        val devsVertex = numOfReplica.map(score => Math.pow(score - meanVertex, 2))
         val stddevVertex = Math.sqrt(devsVertex.sum / numVertex.length)
         val coefficientOfVariationVertex = stddevVertex / meanVertex
 
@@ -414,6 +447,7 @@ object Analytics extends Logging {
         hadoopOS.write(("replicaFactor: " + replicaFactor + "\n" +
           "edgeBalance: " + coefficientOfVariationEdge + "\n" +
           "vertexBalance: " + coefficientOfVariationVertex).getBytes)
+        //TODO: uncomment
 
         //output partition result to HDFS
 //        edge.saveAsTextFile(outputPath + "lpp/" + name + "/experiment_" + expNumber)

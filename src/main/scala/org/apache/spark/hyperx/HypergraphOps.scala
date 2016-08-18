@@ -314,6 +314,34 @@ class HypergraphOps[VD: ClassTag, ED: ClassTag](hypergraph: Hypergraph[VD,
         retSet
     }
 
+    def pickRandomHyperEdges(num: Int): mutable.HashSet[HyperedgeId] = {
+        val probability = num * 1.0 / hypergraph.numHyperedges
+        val retSet = new mutable.HashSet[HyperedgeId]
+        if (probability > 0.5) {
+            hypergraph.hyperedges.map(_.id).collect().foreach{ h =>
+                if(Random.nextDouble() < probability) {
+                    retSet.add(h)
+                }
+            }
+        }
+        else {
+            while (retSet.size < num) {
+                val selectedEdges = hypergraph.hyperedges.flatMap{hidHvals =>
+                    if(Random.nextDouble() < probability) {
+                        Some(hidHvals.id)
+                    }
+                    else {
+                        None
+                    }
+                }
+                if (selectedEdges.count > 1 ) {
+                    val collectedEdges = selectedEdges.collect()
+                    collectedEdges.foreach(retSet.add)
+                }
+            }
+        }
+        retSet
+    }
     /**
      * Execute a Pregel-like iterative vertex-hyperedge-parallel abstraction.
      * The user-defined

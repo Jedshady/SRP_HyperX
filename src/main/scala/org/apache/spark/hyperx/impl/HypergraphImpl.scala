@@ -497,10 +497,13 @@ object HypergraphImpl extends Logging {
         hyperedgeLevel: StorageLevel = StorageLevel.MEMORY_ONLY) = {
 
         val rdds = strategy.partition(numParts, input)
+
         val localVertices = rdds._1.map{v =>
             Tuple2(v._1, (v._2, null.asInstanceOf[VD]))
         }.partitionBy(new HashPartitioner(numParts))
                 .flatMap(p => Iterator(p._2))
+
+
         val vertexPartitioner: Partitioner = strategy.getPartitioner
 
 //        val hyperedges: RDD[(Int, HyperedgePartition[ED, VD])] =
@@ -518,6 +521,8 @@ object HypergraphImpl extends Logging {
 //                Iterator((pid, builder.toHyperedgePartition))
                 Iterator((pid, builder.toFlatHyperedgePartition))
             }, preservesPartitioning = true)
+
+
         val hyperedgesRDD =
             HyperedgeRDD.fromHyperedgePartitions(hyperedges, hyperedgeLevel)
 
