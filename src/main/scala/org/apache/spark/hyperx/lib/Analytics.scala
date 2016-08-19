@@ -196,6 +196,47 @@ object Analytics extends Logging {
 //                hypergraph.vertices.saveAsObjectFile(outputPath + name + "/vertices")
                 sc.stop()
 
+            case "simRank" =>
+                conf.set("hyperx.debug.k", numPart.toString)
+                val sc = new SparkContext(conf.setAppName("SimRank (" +
+                  fname + ")"))
+
+                val hypergraph = loadHypergraph(sc, fname, vertexInput,
+                    fieldSeparator, weighted, numPart, inputMode,
+                    partitionStrategy, hyperedgeStorageLevel, vertexStorageLevel)
+                  .cache()
+
+                val maxIter = options.remove("maxIter").map(_.toInt).getOrElse(10)
+                val num= options.remove("numStartVertices").map(_.toInt)
+                  .getOrElse(hypergraph.numVertices.toInt / 1000)
+
+                val startVSet = hypergraph.pickRandomVertices(num)
+                val startHSet = hypergraph.pickRandomHyperEdges(num)
+
+                val hypergraphAttr = hypergraph.mapTuples{tuple =>
+                    val vSet = (tuple.srcAttr ++ tuple.dstAttr).keySet.iterator.toArray
+                    val edgeAttr = new mutable.HashSet[VertexId]
+                    vSet.foreach(vid => edgeAttr.add(vid))
+                    (tuple.id, edgeAttr)
+                }
+
+                val hVertex = hypergraphAttr.mapReduceTuples[mutable.HashSet[HyperedgeId]]({tuple =>
+                    (tuple.srcAttr.iterator ++ tuple.dstAttr.iterator).map{attr =>
+                          val hSet = new mutable.HashSet[HyperedgeId]
+                          hSet.add(tuple.id)
+                          (attr._1, hSet)
+                    }}, { (a, b) =>
+                    b.foreach(id => a.add(id))
+                    a
+                })
+                
+                val h = hypergraphAttr.outerJoinVertices(hVertex)((vid, vdata, newData) =>
+                    newData.get
+                )
+
+                val ret = SimRank.run(h, maxIter, startVSet, startHSet)
+//                ret.vertices.saveAsTextFile(outputPath + "rw")
+
             case "rw" =>
 
                 conf.set("hyperx.debug.k", numPart.toString)

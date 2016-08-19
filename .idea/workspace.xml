@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="076ffe95-b6be-4613-815d-3675bb273fd7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hyper_target/analysis/compile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hyper_target/analysis/compile.relations" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hyper_target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hyper_target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hyper_target/spark-hyperx-0.0.1-SNAPSHOT-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hyper_target/spark-hyperx-0.0.1-SNAPSHOT.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HypergraphOps.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HypergraphOps.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/impl/HypergraphImpl.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/impl/HypergraphImpl.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala" />
     </list>
     <ignored path="spark-hyperx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,14 +25,14 @@
     <favorites_list name="spark-hyperx" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4047773">
+    <splitter split-orientation="horizontal" split-proportion="0.48030987">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Analytics.scala" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Analytics.scala" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-216">
-                  <caret line="158" column="89" selection-start-line="158" selection-start-column="89" selection-end-line="158" selection-end-column="89" />
+                <state relative-caret-position="479">
+                  <caret line="231" column="16" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="16" />
                   <folding>
                     <element signature="e#37#80#0" expanded="true" />
                     <element signature="e#5041#5905#0" expanded="false" />
@@ -59,18 +50,18 @@
           <file leaf-file-name="Hypergraph.scala" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/Hypergraph.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
+                <state relative-caret-position="-4086">
                   <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RandomWalk.scala" pinned="false" current-in-tab="true">
+          <file leaf-file-name="RandomWalk.scala" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/RandomWalk.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="828">
-                  <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+                <state relative-caret-position="1020">
+                  <caret line="73" column="63" selection-start-line="71" selection-start-column="8" selection-end-line="73" selection-end-column="63" />
                   <folding>
                     <element signature="e#37#68#0" expanded="true" />
                   </folding>
@@ -81,8 +72,8 @@
           <file leaf-file-name="HyperPregel.scala" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperPregel.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+                <state relative-caret-position="144">
+                  <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -111,18 +102,28 @@
           <file leaf-file-name="HyperedgeTuple.scala" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperedgeTuple.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+                <state relative-caret-position="504">
+                  <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HyperedgeRDD.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperedgeRDD.scala">
+          <file leaf-file-name="package.scala" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/package.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="162">
-                  <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+                <state relative-caret-position="468">
+                  <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HyperXOpenHashMap.scala" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashMap.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -135,8 +136,8 @@
           <file leaf-file-name="SimRank.scala" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="732">
-                  <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+                <state relative-caret-position="-1532">
+                  <caret line="28" column="42" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="42" />
                   <folding>
                     <element signature="e#38#69#0" expanded="true" />
                   </folding>
@@ -161,9 +162,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/LabelPropagationPartition.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/impl/HypergraphImpl.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HypergraphOps.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperPregel.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala" />
       </list>
     </option>
   </component>
@@ -252,6 +254,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hyperx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark-hyperx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hyperx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hyperx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partition" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -775,12 +807,12 @@
       <workItem from="1470365181473" duration="18614000" />
       <workItem from="1470534533413" duration="13000" />
       <workItem from="1470726965909" duration="22230000" />
-      <workItem from="1470896457668" duration="20285000" />
+      <workItem from="1470896457668" duration="36517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61142000" />
+    <option name="totallyTimeSpent" value="77374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="28" width="1857" height="973" extended-state="6" />
@@ -948,6 +980,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,6 +1071,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,25 +1082,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/partition/BipartitePartition.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashSet.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1133,23 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="158" column="89" selection-start-line="158" selection-start-column="89" selection-end-line="158" selection-end-column="89" />
-          <folding>
-            <element signature="e#37#80#0" expanded="true" />
-            <element signature="e#5041#5905#0" expanded="false" />
-            <element signature="e#5950#6506#0" expanded="false" />
-            <element signature="e#6593#6649#0" expanded="false" />
-            <element signature="e#6699#6871#0" expanded="false" />
-            <element signature="e#7514#7588#0" expanded="false" />
-            <element signature="e#7600#7659#0" expanded="false" />
-            <element signature="e#8100#8379#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/Hyperedge.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1182,30 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperPregel.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/Hypergraph.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperedgeTuple.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/impl/HypergraphImpl.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -1214,22 +1192,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashSet.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3672">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashMap.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar!/scala/collection/mutable/HashMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperedgeTuple.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/HyperPregel.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1532">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="e#38#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/RandomWalk.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+        <state relative-caret-position="1020">
+          <caret line="73" column="63" selection-start-line="71" selection-start-column="8" selection-end-line="73" selection-end-column="63" />
           <folding>
             <element signature="e#37#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/SpectralLearning.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+        <state relative-caret-position="572">
+          <caret line="246" column="13" selection-start-line="246" selection-start-column="13" selection-end-line="246" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/Hypergraph.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4086">
+          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="231" column="16" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="16" />
           <folding>
-            <element signature="e#38#69#0" expanded="true" />
+            <element signature="e#37#80#0" expanded="true" />
+            <element signature="e#5041#5905#0" expanded="false" />
+            <element signature="e#5950#6506#0" expanded="false" />
+            <element signature="e#6593#6649#0" expanded="false" />
+            <element signature="e#6699#6871#0" expanded="false" />
+            <element signature="e#7514#7588#0" expanded="false" />
+            <element signature="e#7600#7659#0" expanded="false" />
+            <element signature="e#8100#8379#0" expanded="false" />
           </folding>
         </state>
       </provider>
