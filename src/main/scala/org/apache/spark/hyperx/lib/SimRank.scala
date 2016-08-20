@@ -12,22 +12,22 @@ import scala.collection.mutable
   */
 object SimRank extends Logging {
 
-  def run[VD: ClassTag, ED: ClassTag]( hypergraph: Hypergraph[mutable.HashSet[HyperedgeId], mutable.HashSet[VertexId]])
-  :Hypergraph[(mutable.HashSet[HyperedgeId], mutable.HashMap[VertexId, Double]),
-    (mutable.HashSet[VertexId], mutable.HashMap[HyperedgeId, Double])] = {
-    val numV = hypergraph.numVertices
-    val numH = hypergraph.numHyperedges
-    run(hypergraph, 10, hypergraph.pickRandomVertices(numV.toInt),
-      hypergraph.pickRandomHyperEdges(numH.toInt))
-  }
-
-  def run[VD: ClassTag, ED: ClassTag]( hypergraph: Hypergraph[mutable.HashSet[HyperedgeId], mutable.HashSet[VertexId]],
-                                       num: Int, maxIter: Int)
-  :Hypergraph[(mutable.HashSet[HyperedgeId], mutable.HashMap[VertexId, Double]),
-    (mutable.HashSet[VertexId], mutable.HashMap[HyperedgeId, Double])] = {
-    run(hypergraph, maxIter, hypergraph.pickRandomVertices(num),
-      hypergraph.pickRandomHyperEdges(num))
-  }
+//  def run[VD: ClassTag, ED: ClassTag]( hypergraph: Hypergraph[mutable.HashSet[HyperedgeId], mutable.HashSet[VertexId]])
+//  :Hypergraph[(mutable.HashSet[HyperedgeId], mutable.HashMap[VertexId, Double]),
+//    (mutable.HashSet[VertexId], mutable.HashMap[HyperedgeId, Double])] = {
+//    val numV = hypergraph.numVertices
+//    val numH = hypergraph.numHyperedges
+//    run(hypergraph, 10, hypergraph.pickRandomVertices(numV.toInt),
+//      hypergraph.pickRandomHyperEdges(numH.toInt))
+//  }
+//
+//  def run[VD: ClassTag, ED: ClassTag]( hypergraph: Hypergraph[mutable.HashSet[HyperedgeId], mutable.HashSet[VertexId]],
+//                                       num: Int, maxIter: Int)
+//  :Hypergraph[(mutable.HashSet[HyperedgeId], mutable.HashMap[VertexId, Double]),
+//    (mutable.HashSet[VertexId], mutable.HashMap[HyperedgeId, Double])] = {
+//    run(hypergraph, maxIter, hypergraph.pickRandomVertices(num),
+//      hypergraph.pickRandomHyperEdges(num))
+//  }
 
   def run[VD:ClassTag, ED: ClassTag](hypergraph: Hypergraph[mutable.HashSet[HyperedgeId], mutable.HashSet[VertexId]], numIter: Int,
                                      startVSet: mutable.HashSet[VertexId],
@@ -38,12 +38,14 @@ object SimRank extends Logging {
     val vertexTable = hypergraph.vertices.collect().toMap
     val edgeTable = hypergraph.hyperedges.map(h => (h.id, h.attr)).collect().toMap
 
+
+
     val walkHypergraph
     : Hypergraph[(mutable.HashSet[HyperedgeId], mutable.HashMap[VertexId, Double]),
       (mutable.HashSet[VertexId], mutable.HashMap[HyperedgeId, Double])] =
       hypergraph.mapVertices{(vid, vdata) =>
         val vertexMap = new mutable.HashMap[VertexId, Double]
-        startVSet.foreach(id =>vertexMap.put(id, 0.0))
+        startVSet.foreach(id => vertexMap.put(id, 0.0))
         vertexMap.put(vid, 1.0)
         (vdata, vertexMap)
       }.mapHyperedges{ edge =>
@@ -63,29 +65,31 @@ object SimRank extends Logging {
       val currentHSize = currentHSet.size
       val otherVertex = attr._2 - id
 
-      otherVertex.foreach{ pair =>
-        val otherId = pair._1
-        val otherHSet = vertexTable.get(otherId).get
-        val otherHSize = otherHSet.size
+      if(otherVertex.size > 1) {
+        otherVertex.foreach { pair =>
+          val otherId = pair._1
+          val otherHSet = vertexTable.get(otherId).get
+          val otherHSize = otherHSet.size
 
-        var sum = 0.0
-        currentHSet.foreach{ chid =>
-          otherHSet.foreach{ ohid =>
-            val chidAttr = msg.getOrElse(chid, new mutable.HashMap[HyperedgeId, Double]())
-            val similarity = chidAttr.getOrElse(ohid, 0.0)
-            //TODO: need to add sim(cv, ov) into cv's HashMap
-            //            if(similarity == 0){}
-            sum = sum + similarity
+          var sum = 0.0
+          currentHSet.foreach { chid =>
+            otherHSet.foreach { ohid =>
+              val chidAttr = msg.getOrElse(chid, new mutable.HashMap[HyperedgeId, Double]())
+              val similarity = chidAttr.getOrElse(ohid, 0.0)
+              //TODO: need to add sim(cv, ov) into cv's HashMap
+              //            if(similarity == 0){}
+              sum = sum + similarity
+            }
           }
+
+          val evidenceSize = currentHSet.diff(otherHSet).size
+          val evidence = Array[Double](evidenceSize).zipWithIndex
+            .map(pair => 1 / math.pow(pair._1, pair._2 + 1))
+            .sum
+
+          val finalSimilarity = evidence * sum * 0.8 / currentHSize / otherHSize
+          updatedAttr._2.put(otherId, finalSimilarity)
         }
-
-        val evidenceSize = currentHSet.diff(otherHSet).size
-        val evidence = Array[Double](evidenceSize).zipWithIndex
-          .map(pair => 1 / math.pow(pair._1, pair._2 + 1))
-          .sum
-
-        val finalSimilarity = evidence * sum * 0.8 / currentHSize / otherHSize
-        updatedAttr._2.put(otherId, finalSimilarity)
       }
       updatedAttr
     }
@@ -98,32 +102,34 @@ object SimRank extends Logging {
       val currentVSize = currentVSet.size
       val otherEdge = hyperedge.attr._2 - currentId
 
-      otherEdge.iterator.foreach{ pair=>
-        val otherId = pair._1
-        val otherVSet = edgeTable.get(otherId).get
-        val otherVSize = otherVSet.size
+      if (otherEdge.size > 1) {
+        otherEdge.iterator.foreach { pair =>
+          val otherId = pair._1
+          val otherVSet = edgeTable.get(otherId).get
+          val otherVSize = otherVSet.size
 
-        var sum = 0.0
-        currentVSet.iterator.toArray.foreach{ cvid =>
-          val cV = new HyperXOpenHashSet[VertexId]
-          cV.add(cvid)
+          var sum = 0.0
+          currentVSet.iterator.toArray.foreach { cvid =>
+            val cV = new HyperXOpenHashSet[VertexId]
+            cV.add(cvid)
 
-          otherVSet.foreach{ ovid =>
-            val cvidAttr = hyperedge.vertexAttr(cV).toMap.get(cvid).get._2
-            val similarity = cvidAttr.getOrElse(ovid, 0.0)
-            //TODO: need to add sim(cv, ov) into cv's HashMap
-//            if(similarity == 0){}
-            sum = sum + similarity
+            otherVSet.foreach { ovid =>
+              val cvidAttr = hyperedge.vertexAttr(cV).toMap.get(cvid).get._2
+              val similarity = cvidAttr.getOrElse(ovid, 0.0)
+              //TODO: need to add sim(cv, ov) into cv's HashMap
+              //            if(similarity == 0){}
+              sum = sum + similarity
+            }
           }
+
+          val evidenceSize = currentVSet.iterator.toSet.diff(otherVSet.toSet).size
+          val evidence = Array[Double](evidenceSize).zipWithIndex
+            .map(pair => 1 / math.pow(pair._1, pair._2 + 1))
+            .sum
+
+          val finalSimilarity = evidence * sum * 0.8 / currentVSize / otherVSize
+          hyperedge.attr._2.put(otherId, finalSimilarity)
         }
-
-        val evidenceSize = currentVSet.iterator.toSet.diff(otherVSet.toSet).size
-        val evidence = Array[Double](evidenceSize).zipWithIndex
-          .map(pair => 1 / math.pow(pair._1, pair._2 + 1))
-          .sum
-
-        val finalSimilarity = evidence * sum * 0.8 / currentVSize / otherVSize
-        hyperedge.attr._2.put(otherId, finalSimilarity)
       }
       val msgVal = new mutable.HashMap[HyperedgeId, mutable.HashMap[HyperedgeId, Double]]()
       msgVal.put(currentId, hyperedge.attr._2)

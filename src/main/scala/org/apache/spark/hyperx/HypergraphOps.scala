@@ -315,7 +315,8 @@ class HypergraphOps[VD: ClassTag, ED: ClassTag](hypergraph: Hypergraph[VD,
     }
 
     def pickRandomHyperEdges(num: Int): mutable.HashSet[HyperedgeId] = {
-        val probability = num * 1.0 / hypergraph.numHyperedges
+//        val probability = num * 1000.0 / hypergraph.numHyperedges
+        val probability = 0.8
         val retSet = new mutable.HashSet[HyperedgeId]
         if (probability > 0.5) {
             hypergraph.hyperedges.map(_.id).collect().foreach{ h =>

@@ -198,6 +198,7 @@ object Analytics extends Logging {
 
             case "simRank" =>
                 conf.set("hyperx.debug.k", numPart.toString)
+                
                 val sc = new SparkContext(conf.setAppName("SimRank (" +
                   fname + ")"))
 
@@ -229,13 +230,14 @@ object Analytics extends Logging {
                     b.foreach(id => a.add(id))
                     a
                 })
-                
+
                 val h = hypergraphAttr.outerJoinVertices(hVertex)((vid, vdata, newData) =>
                     newData.get
                 )
 
                 val ret = SimRank.run(h, maxIter, startVSet, startHSet)
-//                ret.vertices.saveAsTextFile(outputPath + "rw")
+                ret.vertices.saveAsTextFile(outputPath + "sr")
+                sc.stop()
 
             case "rw" =>
 
