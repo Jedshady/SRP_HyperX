@@ -725,15 +725,15 @@ products:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$43.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$44.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$45.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$46$$anonfun$apply$3.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$46$$anonfun$apply$4.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$46.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$47$$anonfun$apply$4.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$47$$anonfun$apply$5.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$47.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$6.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$7.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$8.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$9.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$5.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$10.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$7.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$8.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$9.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48$$anonfun$apply$6.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$48.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$49.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$5.class
@@ -741,12 +741,13 @@ products:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$51.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$52$$anonfun$apply$1.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$52.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$53$$anonfun$apply$10.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$53$$anonfun$apply$11.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$53$$anonfun$apply$12.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$53.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$54$$anonfun$apply$2.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$54.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$55.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$56$$anonfun$apply$3.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$56.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$57.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$58.class
@@ -755,15 +756,16 @@ products:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$60.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$61.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$62.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$63$$anonfun$apply$12.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$63.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$64$$anonfun$apply$13.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$64.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$65.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$66$$anonfun$apply$13.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$66.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$67$$anonfun$apply$14.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$67.class
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$68$$anonfun$apply$14.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$68.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$69$$anonfun$apply$15.class
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$69.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$7.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$8$$anonfun$apply$mcIJI$sp$1.class
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> target/classes/org/apache/spark/hyperx/lib/Analytics$$anonfun$8.class
@@ -918,6 +920,32 @@ products:
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> target/classes/org/apache/spark/hyperx/lib/Linalg$.class
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> target/classes/org/apache/spark/hyperx/lib/Linalg$SVDMode$2$.class
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> target/classes/org/apache/spark/hyperx/lib/Linalg.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$1.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$10$$anonfun$11.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$10$$anonfun$apply$2.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$10.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$12.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$2.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$3.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$4.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$5.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$6.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$7.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$8$$anonfun$9.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$8$$anonfun$apply$1.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$8.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$1$$anonfun$apply$mcVJ$sp$1.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$1.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$2.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$3.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$run$1.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$run$2.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$run$3.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$run$4.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$shortestPath$1.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$$anonfun$shortestPath$2.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow$.class
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> target/classes/org/apache/spark/hyperx/lib/MaxFlow.class
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> target/classes/org/apache/spark/hyperx/lib/MllibRDDFunctions$$anonfun$1.class
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> target/classes/org/apache/spark/hyperx/lib/MllibRDDFunctions$$anonfun$2.class
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> target/classes/org/apache/spark/hyperx/lib/MllibRDDFunctions$$anonfun$3.class
@@ -1329,6 +1357,9 @@ binary dependencies:
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> /home/jedshady/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> /home/jedshady/.m2/repository/org/scalanlp/breeze_2.10/0.9/breeze_2.10-0.9.jar
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> /usr/local/java/jdk1.8.0_92/jre/lib/rt.jar
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> /home/jedshady/.m2/repository/org/apache/spark/spark-core_2.10/1.1.0/spark-core_2.10-1.1.0.jar
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> /home/jedshady/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> /usr/local/java/jdk1.8.0_92/jre/lib/rt.jar
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> /home/jedshady/.m2/repository/org/apache/spark/spark-core_2.10/1.1.0/spark-core_2.10-1.1.0.jar
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> /home/jedshady/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> /usr/local/java/jdk1.8.0_92/jre/lib/rt.jar
@@ -1570,6 +1601,7 @@ source dependencies:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/BetweennessCentrality.scala
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/LabelPropagation.scala
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/LabelPropagationPartition.scala
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/RandomWalk.scala
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/SimRank.scala
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> src/main/scala/org/apache/spark/hyperx/lib/SpectralLearning.scala
@@ -1605,6 +1637,15 @@ source dependencies:
    src/main/scala/org/apache/spark/hyperx/lib/LabelPropagationPartition.scala -> src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashMap.scala
    src/main/scala/org/apache/spark/hyperx/lib/LabelPropagationPartition.scala -> src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashSet.scala
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/HyperPregel.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/Hyperedge.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/HyperedgeRDD.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/HyperedgeTuple.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/Hypergraph.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/VertexRDD.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/package.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashMap.scala
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> src/main/scala/org/apache/spark/hyperx/util/collection/HyperXOpenHashSet.scala
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> src/main/scala/org/apache/spark/hyperx/lib/SlidingRDD.scala
    src/main/scala/org/apache/spark/hyperx/lib/RandomWalk.scala -> src/main/scala/org/apache/spark/hyperx/HyperPregel.scala
    src/main/scala/org/apache/spark/hyperx/lib/RandomWalk.scala -> src/main/scala/org/apache/spark/hyperx/HyperedgeDirection.scala
@@ -2389,15 +2430,15 @@ class names:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$44
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$45
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$46
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$46$$anonfun$apply$3
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$46$$anonfun$apply$4
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$47
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$47$$anonfun$apply$4
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$47$$anonfun$apply$5
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$5
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$6
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$7
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$8
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$5$$anonfun$apply$9
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$6
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$10
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$7
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$8
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$48$$anonfun$apply$6$$anonfun$apply$9
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$49
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$5
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$50
@@ -2405,12 +2446,13 @@ class names:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$52
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$52$$anonfun$apply$1
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$53
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$53$$anonfun$apply$10
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$53$$anonfun$apply$11
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$53$$anonfun$apply$12
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$54
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$54$$anonfun$apply$2
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$55
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$56
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$56$$anonfun$apply$3
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$57
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$58
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$59
@@ -2419,14 +2461,15 @@ class names:
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$61
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$62
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$63
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$63$$anonfun$apply$12
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$64
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$64$$anonfun$apply$13
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$65
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$66
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$66$$anonfun$apply$13
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$67
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$67$$anonfun$apply$14
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$68
-   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$68$$anonfun$apply$14
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$69
+   src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$69$$anonfun$apply$15
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$7
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$8
    src/main/scala/org/apache/spark/hyperx/lib/Analytics.scala -> org.apache.spark.hyperx.lib.Analytics$$anonfun$8$$anonfun$apply$mcIJI$sp$1
@@ -2579,6 +2622,32 @@ class names:
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> org.apache.spark.hyperx.lib.Linalg$$anonfun$requireSymmetricMatrix$1
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> org.apache.spark.hyperx.lib.Linalg$$anonfun$requireSymmetricMatrix$1$$anonfun$apply$mcVI$sp$1
    src/main/scala/org/apache/spark/hyperx/lib/Linalg.scala -> org.apache.spark.hyperx.lib.Linalg$SVDMode$2$
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$1
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$10
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$10$$anonfun$11
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$10$$anonfun$apply$2
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$12
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$2
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$3
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$4
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$5
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$6
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$7
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$8
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$8$$anonfun$9
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$8$$anonfun$apply$1
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$1
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$1$$anonfun$apply$mcVJ$sp$1
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$2
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$org$apache$spark$hyperx$lib$MaxFlow$$hyperedgeProg$1$3
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$run$1
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$run$2
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$run$3
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$run$4
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$shortestPath$1
+   src/main/scala/org/apache/spark/hyperx/lib/MaxFlow.scala -> org.apache.spark.hyperx.lib.MaxFlow$$anonfun$shortestPath$2
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> org.apache.spark.hyperx.lib.MllibRDDFunctions
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> org.apache.spark.hyperx.lib.MllibRDDFunctions$
    src/main/scala/org/apache/spark/hyperx/lib/MllibRDDFunctions.scala -> org.apache.spark.hyperx.lib.MllibRDDFunctions$$anonfun$1

@@ -108,8 +108,7 @@ class VertexRDD[@specialized VD: ClassTag](
      * Maps each vertex attribute, preserving the index.
      *
      * @tparam VD2 the type returned by the map function
-     *
-     * @param f the function applied to each value in the RDD
+      * @param f the function applied to each value in the RDD
      * @return a new VertexRDD with values obtained by applying `f` to each
      *         of the entries in the
      *         original VertexRDD
@@ -122,8 +121,7 @@ class VertexRDD[@specialized VD: ClassTag](
      * Maps each vertex attribute, additionally supplying the vertex ID.
      *
      * @tparam VD2 the type returned by the map function
-     *
-     * @param f the function applied to each ID-value pair in the RDD
+      * @param f the function applied to each ID-value pair in the RDD
      * @return a new VertexRDD with values obtained by applying `f` to each
      *         of the entries in the
      *         original VertexRDD.  The resulting VertexRDD retains the same
@@ -162,8 +160,7 @@ class VertexRDD[@specialized VD: ClassTag](
      *
      * @tparam VD2 the attribute type of the other VertexRDD
      * @tparam VD3 the attribute type of the resulting VertexRDD
-     *
-     * @param other the other VertexRDD with which to join
+      * @param other the other VertexRDD with which to join
      * @param f the function mapping a vertex id and its attributes in this
      *          and the other vertex set
      *          to a new vertex attribute.
@@ -202,8 +199,7 @@ class VertexRDD[@specialized VD: ClassTag](
      *
      * @tparam VD2 the attribute type of the other VertexRDD
      * @tparam VD3 the attribute type of the resulting VertexRDD
-     *
-     * @param other the other VertexRDD with which to join.
+      * @param other the other VertexRDD with which to join.
      * @param f the function mapping a vertex id and its attributes in this
      *          and the other vertex set
      *          to a new vertex attribute.
@@ -393,6 +389,22 @@ class VertexRDD[@specialized VD: ClassTag](
     : RDD[(PartitionId, VertexAttributeBlock[VD])] = {
         partitionsRDD.mapPartitions(part =>
             part.flatMap{p =>
+
+                //TODO: Debugging gonna delete
+//                val papa = partitionsRDD.collect()
+//                papa.foreach{ ship =>
+//                    val rt = ship.routingTable.routingTable
+//                    rt.foreach{elem =>
+//                        println("=========================")
+//                        val vList = elem._1
+//                        vList.foreach(vid =>
+//                            println("RoutingTable vId: " + vid)
+//                        )
+//                        println("RoutingTable Debug: Set 1:" + elem._2.toString + " Set 2: " + elem._3.toString)
+//                        println("=========================")
+//                    }
+//                }
+                // TODO: Finish
             p.shipVertexAttributes(shipSrc,shipDst)
         })
     }
@@ -405,6 +417,10 @@ class VertexRDD[@specialized VD: ClassTag](
                 val start = System.currentTimeMillis()
                 tStart(i) += start
                 val ret = p.shipVertexAttributes(shipSrc,shipDst)
+
+
+
+
                 t(i) += (System.currentTimeMillis() - start).toInt
                 tCpl(i) += System.currentTimeMillis()
                 ret
@@ -469,7 +485,8 @@ object VertexRDD extends Logging {
      * any missing vertices referred to by `hyperedges` will be created with
      * the attribute
      * `defaultVal`.
-     * @param vertices the collection of vertex-attribute pairs
+      *
+      * @param vertices the collection of vertex-attribute pairs
      * @param hyperedges the [[HyperedgeRDD]] that these vertices may be
      *                   joined with
      * @param defaultVal the vertex attribute to use when creating missing

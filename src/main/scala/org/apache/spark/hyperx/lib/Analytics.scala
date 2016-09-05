@@ -5,12 +5,11 @@ import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.spark.hyperx.partition._
 import org.apache.spark.hyperx._
 import org.apache.spark.hyperx.impl.HypergraphImpl
+import org.apache.spark.hyperx.util.collection.HyperXOpenHashSet
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.{HashPartitioner, Logging, SparkConf, SparkContext}
-import org.apache.spark.rdd.RDD
 
 import scala.collection.mutable
-import scala.util.Random
 
 /**
  * The driver program for all the hypergraph algorithms
@@ -239,6 +238,46 @@ object Analytics extends Logging {
                 ret.vertices.saveAsTextFile(outputPath + "sr")
                 sc.stop()
 
+            case "maxflow" =>
+                val sc = new SparkContext(conf.setAppName("MaxFlow (" +
+                        fname + ")"))
+
+                val hypergraph = loadHypergraph(sc, fname, vertexInput,
+                    fieldSeparator, weighted, numPart, inputMode,
+                    partitionStrategy, hyperedgeStorageLevel, vertexStorageLevel)
+                  .cache()
+
+                val RDDVPartitions = hypergraph.vertices.partitions.length
+                val RDDHPartitions = hypergraph.hyperedges.partitions.length
+
+                println("Vpart: " + RDDVPartitions + "Hpart: " + RDDHPartitions)
+
+                val newVertex = sc.parallelize(Array(((Int.MaxValue - 3).toLong, 1)))
+
+                val prepareEdge = hypergraph.hyperedges.map{edge =>
+                    val dest = edge.dstIds
+                    val newDest = new HyperXOpenHashSet[VertexId]
+                    dest.iterator.foreach(id => newDest.add(id))
+                    newDest.add((Int.MaxValue - 3).toLong)
+                    Hyperedge(edge.srcIds, newDest, edge.attr)
+                }
+
+                val totalEdge = HyperedgeRDD.fromHyperedges[Int, Int](prepareEdge)
+                val totalVertex = VertexRDD.apply(hypergraph.vertices ++ newVertex, totalEdge, 0, new HashPartitioner(numPart))
+                  .withHyperedges(totalEdge)
+
+                val h = HypergraphImpl.fromExistingRDDs(totalVertex, totalEdge)
+
+                val RDDVPartitions1 = h.vertices.partitions.length
+                val RDDHPartitions1 = h.hyperedges.partitions.length
+
+                println("Vparth: " + RDDVPartitions1 + "Hparth: " + RDDHPartitions1)
+
+                val target = (Int.MaxValue - 3).toLong
+                MaxFlow.run(target, h)
+
+                sc.stop()
+
             case "rw" =>
 
                 conf.set("hyperx.debug.k", numPart.toString)
@@ -256,7 +295,7 @@ object Analytics extends Logging {
 
                 val startSet = hypergraph.pickRandomVertices(num)
                 val ret = RandomWalk.run(hypergraph, maxIter, startSet)
-                ret.vertices.saveAsTextFile(outputPath + "rw")
+//                ret.vertices.saveAsTextFile(outputPath + "rw")
                 sc.stop()
 
             case "lp" =>

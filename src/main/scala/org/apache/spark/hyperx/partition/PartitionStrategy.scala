@@ -57,6 +57,11 @@ trait PartitionStrategy extends Serializable with Logging {
         logInfo("HYPERX DEBUGGING: demands " + demands.map(each => each._1 + " : " + each._2.size).reduce(_ + " ; " + _ ))
         logInfo("HYPERX DEBUGGING: locals " + locals.map(each => each._1 + " : " + each._2.size).reduce(_ + " ; " + _))
 
+//        val demandsTotal = demands.collect()
+//        demandsTotal.foreach(tuple =>
+//            println("int: " + tuple._1 + " set: " + tuple._2.toString())
+//         )
+        
         val replicas = demands.zipPartitions(locals){(d, l) =>
             val dSet = d.filter(_._2.size > 0).map(_._2).reduce(_ ++ _)
             val lSet = l.filter(_._2.size > 0).map(_._2).reduce(_ ++ _)

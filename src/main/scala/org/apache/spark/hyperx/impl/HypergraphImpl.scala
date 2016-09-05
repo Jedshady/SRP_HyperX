@@ -96,6 +96,9 @@ class HypergraphImpl[VD: ClassTag, ED: ClassTag] protected(
         else {
             HypergraphImpl(vertices.mapVertexPartitions(_.map(map)),
                 replicatedVertexView.hyperedges)
+//            val newVertices = newHypergraph.vertices
+//            newHypergraph.replicatedVertexView.upgrade(newVertices, true, true)
+//            newHypergraph
         }
     }
 
